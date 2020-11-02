@@ -1,6 +1,7 @@
 //check logic for tie
 // adding players name??
 //work on presentation
+//if game is won prevent from further actions
 
 
 //this create the board as an array
