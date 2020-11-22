@@ -1,7 +1,5 @@
 //check logic for tie
-// adding players name??
-//work on presentation
-//if game is won prevent from further actions
+// adding players name as resistance or empire
 
 
 //this create the board as an array
@@ -19,11 +17,12 @@ class Player{
     }
 };
 
+
 //let's create players
 const playersCreation = (function(){
     let playerX = new Player("X");
     let playerO = new Player("O");
-
+//this starts the game
     function gameOn(e){
         let currentPlayer = controlFlow.change().name;
         let workingDiv = Number(e.path[0].id);
@@ -39,35 +38,6 @@ const playersCreation = (function(){
         playerX : playerX,
         playerO : playerO,
         gameOn : gameOn,
-    }
-})();
-
-//this function control the flow of the game by calling whoIsPlaying
-const controlFlow = (function(){
-    let ctrl =true;
-    function change(){
-        ctrl = !ctrl;
-        return whoIsPlaying.f()
-    }
-    return {
-        change: change,
-    }
-})();
-
-//this is the second flow control and switch between the players
-const whoIsPlaying = (function(){
-    let who = playersCreation.playerX;
-    let second  = playersCreation.playerO;
-    function f(){
-        if(who ==playersCreation.playerX){
-            who = second;
-        }else{
-            who = playersCreation.playerX
-        }
-        return who
-    }
-    return {
-        f:f
     }
 })();
 
@@ -101,6 +71,37 @@ const displayGameboard = (function(){
 })
 
 })();
+
+//this function control the flow of the game by calling whoIsPlaying
+const controlFlow = (function(){
+    let ctrl =true;
+    function change(){
+        ctrl = !ctrl;
+        return whoIsPlaying.f()
+    }
+    return {
+        change: change,
+    }
+})();
+
+//this is the second flow control and switch between the players
+const whoIsPlaying = (function(){
+    let who = playersCreation.playerX;
+    let second  = playersCreation.playerO;
+    function f(){
+        if(who ==playersCreation.playerX){
+            who = second;
+        }else{
+            who = playersCreation.playerX
+        }
+        return who
+    }
+    return {
+        f:f
+    }
+})();
+
+
 
 //function that controls if there is a winner
 const finish = (function(){
@@ -155,6 +156,8 @@ const b = (function(){
     let result = document.getElementById('result');
     result.appendChild(newB);
     newB.addEventListener('click',()=>{window.location.reload()})
+    let gridItems = document.querySelectorAll('.gridItem');
+    gridItems.forEach(gridItem =>{ gridItem.removeEventListener('click',playersCreation.gameOn)})
     };
     return{
         replay : replay

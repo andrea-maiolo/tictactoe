@@ -1,0 +1,20 @@
+{
+  "name": "tictactoe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "s":"live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrea-maiolo/tictactoe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrea-maiolo/tictactoe/issues"
+  },
+  "homepage": "https://github.com/andrea-maiolo/tictactoe#readme"
+}

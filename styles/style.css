@@ -1,0 +1,30 @@
+.gridItem{
+    background-color: #fff;
+    border: 1px solid #4595BB;
+    align-items: center;
+    justify-content: center;
+}
+
+#grid{
+    flex:1;
+    margin-left: 38vw;
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    grid-template-rows: repeat(3, 80px); 
+}
+
+#title{
+    flex:1;
+    margin-left:33vw;
+    color:#4595BB;
+}
+#result{
+    margin-left: 40vw;
+}
+#main{
+    margin-top: 10vh;
+}
+/* body{
+    background-image: url(sw.jpg);
+    background-size: cover;
+} */
