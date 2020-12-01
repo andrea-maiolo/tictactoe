@@ -25,9 +25,10 @@ const playersCreation = (function(){
 //this starts the game
     function gameOn(e){
         let currentPlayer = controlFlow.change().name;
+        svgUse(currentPlayer);
         let workingDiv = Number(e.path[0].id);
         if(e.path[0].innerHTML != "X" && e.path[0].innerHTML !="O"){
-            e.path[0].innerHTML = currentPlayer;
+            e.path[0].appendChild(svgPlayer);
             let index = gameBoard.gb.indexOf(workingDiv);
             gameBoard.gb[index] = currentPlayer;
         }else{return}
@@ -54,7 +55,7 @@ const displayGameboard = (function(){
     //ading class to the div 
     const addingClass = (function(){
         divs.forEach(div => {
-            if(div.id=="grid"||div.id =="result"||div.id=="players"){return}
+            if(div.id=="grid"||div.className =="result"||div.className=="players"){return}
             div.classList.add("gridItem")
         })
     })();
@@ -86,13 +87,13 @@ const controlFlow = (function(){
 
 //this is the second flow control and switch between the players
 const whoIsPlaying = (function(){
-    let who = playersCreation.playerX;
-    let second  = playersCreation.playerO;
+    let who = playersCreation.playerO;
+    let second  = playersCreation.playerX;
     function f(){
-        if(who ==playersCreation.playerX){
-            who = second;
+        if(who ==playersCreation.playerO){
+            who = second
         }else{
-            who = playersCreation.playerX
+            who = playersCreation.playerO
         }
         return who
     }
@@ -105,8 +106,9 @@ const whoIsPlaying = (function(){
 
 //function that controls if there is a winner
 const finish = (function(){
-    const result = document.getElementById('result');
+    const result = document.querySelector('.result');
     let text = document.createElement('p');
+    text.id="rText"
     function winnerCheck(array){
         if(array[0]==array[1]&&array[1]==array[2]){
             text.innerText = `Congratulations! Player${array[0]} is the winner`;
@@ -151,9 +153,10 @@ const finish = (function(){
 const b = (function(){
     function replay(){
     let newB = document.createElement('button');
+    newB.id="rButton";
     newB.innerText = "Play again?";
     newB.classList.add('replay');
-    let result = document.getElementById('result');
+    let result = document.querySelector('.result');
     result.appendChild(newB);
     newB.addEventListener('click',()=>{window.location.reload()})
     let gridItems = document.querySelectorAll('.gridItem');
@@ -163,3 +166,18 @@ const b = (function(){
         replay : replay
     }
 })();
+
+
+//function that changes user in svg
+function svgUse(currentP){
+    let rebelion = document.querySelector('#rebelion');
+    let empire =document.querySelector('#empire');
+    if(currentP =="X"){
+        svgPlayer = rebelion
+    }
+    else{
+        svgPlayer =empire
+    }
+    console.log(svgPlayer)
+    return svgPlayer
+}

@@ -24,7 +24,35 @@
 #main{
     margin-top: 10vh;
 }
-/* body{
+.players{
+    width: 354px;
+    margin-top:28px;
+    margin-left:33vw;
+    background-color: #4595bb;
+    text-align:center;
+}
+.svg{
+    margin-left:10px;
+}
+.result{
+    width: 354px;
+    margin-top:-16px;
+    margin-left:33vw;
+    background-color: #4595bb;
+    text-align:center;
+}
+#rText{
+    position: relative;
+    top:10px;
+}
+#rButton{
+    color:#4595bb;
+    background-color: #ffffff;
+    border:none;
+    padding: 1em 1em;
+    font-size: medium;
+}
+body{
     background-image: url(sw.jpg);
     background-size: cover;
-} */
+}
