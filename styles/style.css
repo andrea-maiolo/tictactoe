@@ -3,6 +3,7 @@
     border: 1px solid #4595BB;
     align-items: center;
     justify-content: center;
+    color:#fff;
 }
 
 #grid{
@@ -51,6 +52,11 @@
     border:none;
     padding: 1em 1em;
     font-size: medium;
+}
+.svgs{
+    width:50px;
+    height: 50px;
+    margin-top: 0.7em;
 }
 body{
     background-image: url(sw.jpg);
